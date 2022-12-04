@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--n5e2lq!al(^$()rj^gm8vryu=6b=^w!ane%=ca)2#(u@u7bfb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["lifotest-production.up.railway.app"]
 
 
 # Application definition
