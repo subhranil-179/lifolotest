@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} HumanLifology | About Us{% endblock title %}
+{% block style %}
+{% load static %}
+<style>
+    .full-form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem;
+    }
+    .full-form > h4{
+        display: inline;
+    }
+    .full-form > small{
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: 2rem;
+    }
+    .our-goal{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .supporting-text{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        text-align: left;
+		padding-inline: 1rem;
+    }
+    .supporting-text > *{
+        display: inline;
+    }
+    .supporting-text > h3{
+        color: #00aa95;
+        margin-right: 0.5rem;
+        border-bottom: 2px solid #00aa95;
+        font-weight: 400;
+        border-radius: 16%;
+    }
+    .supporting-text > p{
+		font-size: 1.1rem;
+        line-height: 2;
+    }
+</style>
+{% endblock style %}
+{% block body %}
+{% load static %}
+<main class="container about-us">
+    <h1 class="h-underline">About Us</h1>
+    <!--
+    <div class="full-form"><h4 class="text-center logo">{% include 'svgs/logo.svg' %}</h4><h4 class="text-center">Life and Technology</h4></div>
+    -->
+    {% include 'components/logo_with_moto.html' %}
+    <article class="text-center">
+        <div class="our-goal">
+            <div class="supporting-text">
+                <h3 class="display-4">Our Goal</h3>
+                <p class="">is to educate people on how they can use technology as their ally to improve their quality of life rather than making it their own foe and unknowninlgy doing severe damage to their life.</p>
+            </div>
+        </div>
+        <div class="our-goal">
+            <div class="supporting-text">
+                <h3 class="display-4">Motivation</h3>
+                <p class="">Internet begin to be mainstreamed in the early 2000s, since then technology has evolved insanely. But with the rise of smartphones and high speed internet our lifestyle has been completely changed, infact it has affected most people's life in a negative way</p>
+            </div>
+        </div>
+    </article>
+</main>
+{% endblock body %}

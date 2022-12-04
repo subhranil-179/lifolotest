@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+{% block style %}
+<style>
+    .register-form > p > label{ 
+        margin-bottom: 0.5rem;
+    }
+    .helptext{
+        margin-top: 0.5rem;
+    }
+    .register-form > p{
+        display: grid;
+    }
+</style>
+{% endblock style %}
+{% block body %} 
+<div class="container">
+    <form class="auth-form form-group register-form" action="" method="POST">
+        <div class="form-heading">
+            <div class="logo">{% include 'svgs/logo.svg' %}</div>
+            <h1>Register</h1>
+        </div>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-success" type="submit" value="Register">
+        <span>Already have an account?<a href="{% url 'login' %}"> Login </a>Now!</span>
+    </form>
+</div>
+{% endblock body %}
+

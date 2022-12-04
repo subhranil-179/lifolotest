@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+{% block style %}
+<style>
+    .login-form > p{
+        justify-content: space-evenly;
+    }
+</style>
+{% endblock style %}
+{% block body %} 
+<div class="container">
+    <form class="auth-form form-group login-form" action="" method="POST">
+        <div class="form-heading">
+            <div class="logo">{% include 'svgs/logo.svg' %}</div>
+            <h1>Login</h1>
+        </div>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-success" type="submit" value="Login">
+        <span>Don't have an account?<a href="{% url 'accounts:register' %}"> Register </a>Now!</span>
+        <!--
+        <input type="hidden" name="next" value="{{request.META.HTTP_REFERER}}">
+        -->
+    </form>
+</div>
+{% endblock body %}

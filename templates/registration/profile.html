@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} User | {{profile.user.username}} {% endblock title %}
+{% block body %}
+<div class="container">
+    <img style="border-radius:50%;" width=200px height=200px src="{{profile.image.url}}" alt="">
+    <p>username: {{profile.user.username}}</p>
+    <p>bio: {{profile.bio}}</p>
+    <a href="{% url 'logout' %}"> Logout </a>
+</div>
+{% endblock body %}

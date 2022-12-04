@@ -1,0 +1,59 @@
+<style>
+    #id_message{
+        height: 30px;
+    }
+    .comment-form{
+        display: flex;
+        align-items: center;
+    }
+    .comment-form > div{
+        margin-bottom: 0 !important;
+        margin-right: 1rem;
+        width: -moz-available;
+    }
+</style>
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-0 border" style="background-color: var(--bs-dark); margin-block: 2rem; border-radius: 1rem;">
+      <div class="card-body p-4">
+        {% if user.is_authenticated %}
+        <form class="form-outline mb-4 comment-form" method="POST">
+            {% csrf_token %}
+        <!--
+          <label class="form-label" style="color: white;" for="addANote">Post a comment</label>
+          <input type="text" id="addANote" class="form-control" placeholder="Type comment..." />
+        -->
+          {{form.as_div}}
+          <input type="submit" class="btn btn-primary" value="Post">
+        </form>
+        {% else %}
+        <div class="text-center" style="color: white; margin-bottom: 1rem;">
+            Please <a target="_blank" href="{% url 'login' %}">login</a> to post a comment
+        </div>
+        {% endif %}
+
+        {% for comment in blog.comments.all|dictsortreversed:"id" %}
+        <div class="card mb-4">
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                  <img src="{{ comment.commenter.userprofile.image.url }}" alt="avatar" width="25"
+                  height="25" style="border-radius:50%;"/>
+                <p class="small mb-0 ms-2">{{comment.commenter.username}}</p>
+              </div>
+              <div class="d-flex flex-row align-items-center" style="display: none !important;">
+                <p class="small text-muted mb-0">Upvote?</p>
+                <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
+                <p class="small text-muted mb-0">3</p>
+              </div>
+            </div>
+            <p style="margin-bottom:0; margin-top: 1rem; padding-left: 1rem;">{{comment.comment_text}}</p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
