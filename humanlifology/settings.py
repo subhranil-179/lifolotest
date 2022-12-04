@@ -21,12 +21,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--n5e2lq!al(^$()rj^gm8vryu=6b=^w!ane%=ca)2#(u@u7bfb'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG'))
 
-ALLOWED_HOSTS = ["lifotest-production.up.railway.app"]
+ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
+
+ALLOWED_HOSTS = ["lifotest-production.up.railway.app", "localhost"]
+
+if ENV_ALLOWED_HOST is not None:
+    ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
 
 
 # Application definition
@@ -85,6 +90,32 @@ DATABASES = {
     }
 }
 
+POSTGRES_DB = os.environ.get("POSTGRES_DB")
+POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
+POSTGRES_USER = os.environ.get("POSTGRES_USER")
+POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
+POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
+
+POSTGRES_READY = (
+    POSTGRES_DB is not None
+    and POSTGRES_PASSWORD is not None
+    and POSTGRES_USER is not None
+    and POSTGRES_HOST is not None
+    and POSTGRES_PORT is not None
+)
+
+if POSTGRES_READY:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": POSTGRES_DB,
+            "USER": POSTGRES_USER,
+            "PASSWORD": POSTGRES_PASSWORD,
+            "HOST": POSTGRES_HOST,
+            "PORT": POSTGRES_PORT,
+        }
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -139,3 +170,6 @@ AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_REDIRECT_URL = 'articles:home'
 LOGOUT_REDIRECT_URL = 'articles:home'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
