@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from accounts.models import User
+from datetime import datetime
 
 # Create your models here.
 
@@ -17,14 +18,15 @@ class Article(models.Model):
         return reverse('articles:detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        slug = slugify(str(self.title))
-        count = self.__class__.objects.filter(
-                slug__startswith=slug).count()
+        if self.slug is None or self.slug == "":
+            slug = slugify(str(self.title))
+            count = self.__class__.objects.filter(
+                    slug__startswith=slug).count()
 
-        self.slug = slug
+            self.slug = slug
 
-        if count > 0:
-            self.slug = slug + "-" + str(count+1)
+            if count > 0:
+                self.slug = slug + "-" + str(count+1)
 
         super().save(*args, **kwargs)
 
@@ -38,3 +40,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return str(self.comment_text)
+
+class Images(models.Model):
+    article = models.ForeignKey(Article, default=None, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to=f'images/articles/{datetime.now().strftime("%Y")}/{datetime.now().strftime("%m")}/{datetime.now().strftime("%d")}')
+
+    def __str__(self):
+        return str(self.image)

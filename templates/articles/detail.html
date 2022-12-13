@@ -1,6 +1,36 @@
 {% extends 'base.html' %}
 {% block style %}
 <style>
+    p{
+        padding-left: 1rem;
+    }
+    table{
+        margin-left: 1rem;
+    }
+    .table-of-contents-container  ol { counter-reset: item }
+    .table-of-contents-container li{ display: block }
+    .table-of-contents-container li:before { content: counters(item, ".") " "; counter-increment: item }
+    table{
+        margin-bottom: 1rem;
+    }
+    table, tr, th, td{
+        border: 2px solid black;
+    }
+    th{
+        text-align: center;
+        width: 50%;
+        font-weight: bold;
+        background-color: var(--bs-dark);
+        color: var(--bs-light);
+    }
+    th:
+    th > h5{
+        font-weight: inherit;
+        margin-bottom: 0;
+    }
+    td, th{
+        padding: .5rem;
+    }
     .main-heading{
         text-align: center;
         background-color: var(--bs-dark);
@@ -16,17 +46,24 @@
         padding: 0.75rem;
         border-radius: 8px;
         color: white !important;
-        z-index: -1;
         line-height: 1.7;
         position: sticky;
         top: calc(80px + 1.5rem);
         margin-top: 3rem;
+        margin-bottom: 3rem;
     }
     .table-of-contents-container > h3{
         text-align: center;
     }
     .table-of-contents a{
         color: white !important;
+    }
+    .centered-box{
+        border: 2px solid black;
+        width: min-content;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0.5rem;
     }
     .table-of-contents > li{
         margin-block: 0.25rem;
@@ -46,19 +83,26 @@
         margin-block: 1.5rem;
     }
     .image-container > img{
-        max-width: 100%;
+        max-width: 400px;
     }
     #container-95p{
         width: 95%;
         max-width: none;
     }
-    @media (min-width: 0) and (max-width: 832px){
+    .sub-toc-link{
+        list-style: lower-alpha;
+    }
+    @media (min-width: 0) and (max-width: 991px){
         .outermost-article-container{
             flex-direction: column;
+        }
+        .image-container > img{
+            max-width: 100%;
         }
         .table-of-contents-container{
             position: static;
             margin-top: 1rem;
+            margin-bottom: 0rem;
             margin-right: auto;
             margin-left: 2rem;
         }
@@ -76,9 +120,10 @@
 {% endblock style %}
 {% block title %} Article | {{blog.title}} {% endblock title %}
 {% block body %}
+{% load static %}
 <div class="container" id="container-95p">
     <h1 class="main-heading">{{blog.title}}</h1>
-{{blog.content | safe}}
+    {{blog.content|safe}}
 </div>
 <div class="comments">
 {% include 'articles/comments.html' %}

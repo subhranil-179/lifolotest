@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% block title %} Blog {% endblock title %}
+{% block style %}
+<style>
+    .table-of-contents-container  ol { counter-reset: item }
+    .table-of-contents-container li{ display: block }
+    .table-of-contents-container li:before { content: counters(item, ".") " "; counter-increment: item }
+    table{
+        margin-bottom: 1rem;
+    }
+    table, tr, th, td{
+        border: 2px solid black;
+    }
+    th{
+        text-align: center;
+        width: 50%;
+        font-weight: bold;
+        background-color: var(--bs-dark);
+        color: var(--bs-light);
+    }
+    th:
+    th > h5{
+        font-weight: inherit;
+        margin-bottom: 0;
+    }
+    td, th{
+        padding: .5rem;
+    }
+    .main-heading{
+        text-align: center;
+        background-color: var(--bs-dark);
+        color: var(--bs-light);
+        padding-block: 1rem;
+        padding-inline: 1rem;
+        border-radius: 8px;
+    }
+    .table-of-contents-container{
+        background-color: var(--bs-dark);
+        max-width: 264px;
+        height: max-content;
+        padding: 0.75rem;
+        border-radius: 8px;
+        color: white !important;
+        line-height: 1.7;
+        position: sticky;
+        top: calc(80px + 1.5rem);
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .table-of-contents-container > h3{
+        text-align: center;
+    }
+    .table-of-contents a{
+        color: white !important;
+    }
+    .centered-box{
+        border: 2px solid black;
+        width: min-content;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0.5rem;
+    }
+    .table-of-contents > li{
+        margin-block: 0.25rem;
+    }
+    .outermost-article-container{
+        display: flex;
+    }
+    main > article{
+        margin-top: 2.5rem;
+        margin-left: 2rem;
+    }
+    .image-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-block: 1.5rem;
+    }
+    .image-container > img{
+        max-width: 400px;
+    }
+    #container-95p{
+        width: 95%;
+        max-width: none;
+    }
+    .sub-toc-link{
+        list-style: lower-alpha;
+    }
+    @media (min-width: 0) and (max-width: 992px){
+        .outermost-article-container{
+            flex-direction: column;
+        }
+        .image-container > img{
+            max-width: 100%;
+        }
+        .table-of-contents-container{
+            position: static;
+            margin-top: 1rem;
+            margin-bottom: 0rem;
+            margin-right: auto;
+            margin-left: 2rem;
+        }
+        main > article{
+            margin-left: 0;
+        }
+    }
+    @media (min-width: 0) and (max-width: 368px){
+        .table-of-contents-container{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+</style>
+{% endblock style %}
+{% block body %}
+{% load static %}
+<div class="container" id="container-95p">
+    <h1 class="main-heading">Master the art of stress relieving with these 10 activities: scientifically proven</h1>
+    <section class="outermost-article-container">
+        <nav class="table-of-contents-container container">
+            <h3>Table of contents</h3>
+            <ol class="table-of-contents">
+                <li><a href="">What is stress?</a>
+                    <ol class="sub-toc-link">
+                        <li><a href="">Types of stress</a></li>
+                    </ol>
+                </li>
+                <li><a href="">Stress V/S anxiety</a>
+                    <ol class="sub-toc-link">
+                        <li><a href="">Difference between stress and anxiety</a></li>
+                    </ol>
+                </li>
+                <li><a href="#hello">Best stress relieving activites</a>
+                    <ol class="sub-toc-link">
+                        <li><a href="">Deep breathing</a></li>
+                        <li><a href="">Listening to music</a></li>
+                        <li><a href="">Walking</a></li>
+                        <li><a href="">Close eyes</a></li>
+                        <li><a href="">Meditate</a></li>
+                        <li><a href="">Laugh</a></li>
+                        <li><a href="">Write</a></li>
+                        <li><a href="">Talk</a></li>
+                        <li><a href="">Try something new</a></li>
+                        <li><a href="">Gratitude</a></li>
+                    </ol>
+                </li>
+                <li><a href="#hello">Conclusion</a></li>
+            </ol>
+        </nav>
+        <main>
+            <article>
+                <section>
+                    <h2>Introduction</h2>
+                    <p>Stress has now become the most used term in everyone’s life. We can observe everybody saying that I have stress for my exams, I have stress in my work, stress in daily life etc. Everyone faces the same problem that is “stress”.<br>We all want us to get relieve from all the stresses in our life but we are not able to get relief from stress. In this you case, you can do some activities, which will help you in getting relief from stress. So, in this article you will read what is stress, difference between stress and anxiety because there is a misconception between stress and anxiety and the 10 best stress-relieving activities.</p>
+                    <figure class="image-container">
+                        <img src="/" alt="">
+                        <figcaption>Google Analytics</figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <h2>What is stress?</h2>
+                    <p>Stress is the situation when a person thinks a lot about something continuously like stress for exam or exam result, financial problems, personal problems, health problems etc. It makes us feel angry, frustrated and nervous.</p>
+					<br>
+					<p>According to Wikipedia, in psychology, stress means feeling of emotional stress and pressure. Stress can be classified as short-term stress and long-term stress. Stress is not always bad if it makes us to take better steps and decisions but it is bad if your stress does not results in something useful.</p>
+					<p>For example, if you are taking stress for your exams and after thinking a lot about your exams you started studying but in the other case, you are just taking a lot of stress and not taking any action. In the first case, stress is good because it made you to take a valuable action but in the second case, stress is bad because it only make you to over think.</p>
+                    <!--
+                    <figure class="image-container">
+                        <img src="{% static 'images/pages/3.png' %}" alt="">
+                        <figcaption>Fig. 2</figcaption>
+                    </figure>
+                    -->
+                    <article>
+                        <h3>Types of Stress</h3>
+                        <h4 class="text-center centered-box">STRESS</h4>
+                        <table>
+                            <tr>
+                                <th><h5>Acute Stress</h5></th>
+                                <th><h5>Chronic Stress</h5></th>
+                            </tr>
+                            <tr>
+                                <td>Acute stress is the stress, which happens for a very short period loke for hours or some days.</td>
+                                <td>Chronic stress is the stress, which happens for a longer period like for weeks or months.</td>
+                            </tr>
+                            <tr>
+                                <td>Acute stress helps us to get rid of the problems of our life, by taking strress for shorter time and then taking valuble actions.</td>
+                                <td>Chronic stress leads to serious health problems as it only makes us to over think a lot about a particular situation</td>
+                            </tr>
+                        </table>
+                    </article>
+                </section>
+                <section id="hello">
+                    <h2>Stress V/S Anxiety</h2>
+                    <p>Most of the people think that stress and anxiety are the same terms or they use it interchangeably. However, this is not correct; stress and anxiety are not the same terms. Yes, to a some extent they are same but not completely.</p>
+                    <h3>Difference between stress and anxiety</h3>
+                    <p> In general, stress happens for a short term but anxiety happens for a long term. If the condition or situation, which was giving us, stress (stressor) passes away and we stop thinking about that, then the situation will be of stress. However, even after the stressor passes away, we still over think about a situation continuously with negative thoughts, then this are anxiety. Anxiety causes excessive worries.</p>
+                    <p>The three symptoms that are common in stress and anxiety are sleeping problems, fatigue and muscle aches and headaches.</p>
+                </section>
+                <section>
+                    <article>
+                        <h2>10 Best stress relieving activities</h2>
+                        <p>Now, let us read the 10 best ways of relieving stress. By following, the activiteis you will surely help in geeting relieve from your stresses.</p>
+                        <ol>
+                            <li>
+                                <section>
+                                    <h3>Deep Breathing</h3>
+                                    <p>Researchers have shown that deep breathing helps in stress reduction. By deep breathing, you take more oxygen in which makes our heart rate slower and the over; thinking of things also slows down.  Deep breathing directly affects our brain and makes us calmer. Thus, it helps a lot in stress relievement.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/deep_breathing.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Listening to music</h3>
+                                    <p>Music relaxes and calms down our mind and body. Researchers have shown that music especially classical music makes our nervous system calm and thus helps in reducing stress. You can listen to any classical music according to your choice to get relief from stress.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/music.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Walking</h3>
+                                    <p>Walking helps a lot in stress relievment, you can walk in a park, in neighboring place or in garden. Try to choose a place where you can find peace and beautiful scenery. Therefore, that it will refresh your mood and will automatically feel better and get relieve from stress.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/walking.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Close eyes</h3>
+                                    <p>Closing eyes makes our mind and muscles more relaxed. Close your eyes and just think about your present, do not think about your stress. Try to think positive about yourself and your life. Try to divert your mind from the stressor to positive things. You can also rub your palms together and give heat to your eyes using your palms; this will make you feel better.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/close_eyes.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Meditate</h3>
+                                    <p>Meditation is one of the best stress reliever. Meditation helps to focus at one place; it makes our mind to concentrate at a place rather than over thinking about different things. Daily you should practice meditation for 20-25 minutes or more according to your comfort.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/meditate.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Laugh</h3>
+                                    <p>Try to laugh in every situation of life. Laughing reduces your mental load and gives relieve from stress. Laughing helps to feel us happier and joyful. It also reduces our stress hormones. So, try to laugh more and more.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/laugh.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Write</h3>
+                                    <p>By writing, the things down you can get relief from your stress. Write down all the things by which you are feeling stressed. After writing them on a paper, you will feel relaxed and calmer. Writing helps you to know more about yourself.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/write.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Talk</h3>
+                                    <p>Talk with a person whom you can share your feelings or the reason of stress. By talking to someone you, can get some relieve from a lot of stress and feel better. You can talk to anyone your family members or friends whomever you want.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/talk.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Try something new</h3>
+                                    <p>Try to do something different when you have stress of something. It is the best way of distracting your mind from stress. When you will learn something new, it will make your mind to concentrate on learning rather than stress.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/learn_something_new.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                            <li>
+                                <section>
+                                    <h3>Gratitude</h3>
+                                    <p>When we express gratitude, our brain releases two hormones, i.e. Dopamine and Serotonin, which makes us, feel good. This helps in stress reduction. Show gratitude for what good you have in your life rather than thinking and regretting for what you do not have.</p>
+                                    <figure class="image-container">
+                                        <img src="/media/images/articles/2022/12/08/gratitude.jpg" alt="">
+                                        <figcaption>Google Analytics</figcaption>
+                                    </figure>
+                                </section>
+                            </li>
+                        </ol>
+					<section>
+						<h2>Conclusion</h2>
+						<p>In this article, you read about what is stress, the difference between stress and anxiety and the 10 best ways of stress relievement or stress relievement activities. Stress is common in everyone but when it exceeds limit, causes many problems including physical, mental and emotional. Try to follow these scientifically proven activities to reduce your stress.</p>
+					</section>
+                    </article>
+                </section>
+            </article>
+        </main>
+    </section>
+</div>
+{% for comment in .comments.all %}
+    {{comment}}
+{% endfor %}
+{% endblock body %}
