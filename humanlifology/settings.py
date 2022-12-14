@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'e_$n1^sg#n!z=2!mo+t-$s+m_nbw&k_to!6_ytie$utv$__tj4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 
-ALLOWED_HOSTS = ["192.168.133.130", "localhost", "lifology.site"]
+ALLOWED_HOSTS = ["lifology.site", "www.lifology.site"]
 
 if ENV_ALLOWED_HOST is not None:
     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
@@ -86,14 +86,23 @@ WSGI_APPLICATION = 'humanlifology.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lifology',
-        'USER': 'admin',
-        'PASSWORD': 'root',
+        'NAME': 'lifotest',
+        'USER': 'subhranil',
+        'PASSWORD': '#Subhranil2003',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
+'''
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
