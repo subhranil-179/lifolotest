@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'e_$n1^sg#n!z=2!mo+t-$s+m_nbw&k_to!6_ytie$utv$__tj4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 
-ALLOWED_HOSTS = ["lifology.site", "www.lifology.site"]
+ALLOWED_HOSTS = ["lifology.site", "www.lifology.site", "localhost"]
 
 if ENV_ALLOWED_HOST is not None:
     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
@@ -82,7 +82,6 @@ WSGI_APPLICATION = 'humanlifology.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -98,11 +97,12 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': '/home/subhranil/latest/db.sqlite3',
     }
 }
-
 '''
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -160,3 +160,11 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 """
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'lifology.site@gmail.com'
+EMAIL_HOST_PASSWORD = 'mrrxvbumfjwpruqe'
+EMAIL_USE_TLS = True
+
