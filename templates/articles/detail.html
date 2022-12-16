@@ -118,6 +118,11 @@
     }
 </style>
 {% endblock style %}
+{% block head %}
+<meta name="description" content="{{blog.description}}">
+<meta name="keywords" content="{{blog.keywords}}">
+<meta name="author" content="Suprobha Saikat">
+{% endblock head %}
 {% block title %} Article | {{blog.title}} {% endblock title %}
 {% block body %}
 {% load static %}

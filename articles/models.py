@@ -9,6 +9,7 @@ from datetime import datetime
 class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
+    keywords = models.CharField(max_length=200, default="")
     description = models.CharField(max_length=600, default="")
     slug = models.SlugField(max_length=300)
     publish_timestamp = models.DateTimeField(auto_now_add=True)

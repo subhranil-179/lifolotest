@@ -14,7 +14,7 @@
     <title>{% block title %} {% endblock title %}</title>
     <style>
     p{
-        color: black !important;
+        color: black;
     }
     .site-navbar{
         z-index: 1;

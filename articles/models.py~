@@ -9,6 +9,7 @@ from datetime import datetime
 class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
+    keywords = models.CharField(max_length=200, default="")
     description = models.CharField(max_length=600, default="")
     slug = models.SlugField(max_length=300)
     publish_timestamp = models.DateTimeField(auto_now_add=True)
@@ -46,4 +47,4 @@ class Images(models.Model):
     image = models.ImageField(upload_to=f'images/articles/{datetime.now().strftime("%Y")}/{datetime.now().strftime("%m")}/{datetime.now().strftime("%d")}')
 
     def __str__(self):
-        return str(self.image + "--" + self.article)
+        return str(self.image)

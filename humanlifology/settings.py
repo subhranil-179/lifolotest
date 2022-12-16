@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e_$n1^sg#n!z=2!mo+t-$s+m_nbw&k_to!6_ytie$utv$__tj4'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Added manually
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     # Project Apps
     'articles.apps.ArticlesConfig',
     'accounts.apps.AccountsConfig',
@@ -82,14 +85,15 @@ WSGI_APPLICATION = 'humanlifology.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lifotest',
-        'USER': 'subhranil',
-        'PASSWORD': '#Subhranil2003',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
     }
 }
 '''
@@ -100,7 +104,6 @@ DATABASES = {
         'NAME': '/home/subhranil/latest/db.sqlite3',
     }
 }
-'''
 
 
 
@@ -161,6 +164,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 """
 
+SITE_ID=1
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
