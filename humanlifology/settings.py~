@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'humanlifology.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -96,6 +96,7 @@ DATABASES = {
         'PORT': os.environ.get('PORT'),
     }
 }
+
 '''
 
 DATABASES = {
@@ -104,7 +105,7 @@ DATABASES = {
         'NAME': '/home/subhranil/latest/db.sqlite3',
     }
 }
-
+'''
 
 
 # Password validation
