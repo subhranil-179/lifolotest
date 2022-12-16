@@ -104,7 +104,7 @@
             margin-top: 1rem;
             margin-bottom: 0rem;
             margin-right: auto;
-            margin-left: 1rem;
+            margin-left: 2rem;
         }
         main > article{
             margin-left: 0;
