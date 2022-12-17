@@ -122,6 +122,9 @@
 <meta name="description" content="{{blog.description}}">
 <meta name="keywords" content="{{blog.keywords}}">
 <meta name="author" content="Suprobha Saikat">
+{% if blog.canonical %}
+<link rel="canonical" href="{{blog.canonical}}" />
+{% endif %}
 {% endblock head %}
 {% block title %} Article | {{blog.title}} {% endblock title %}
 {% block body %}

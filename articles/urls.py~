@@ -4,7 +4,7 @@ from articles.views import (HomeView,
                             ArticleCreateView,
                             ArticleUpdateView,
                             ArticleDeleteView)
-from articles.views import article_view
+from articles.views import article_view, fix
 
 
 app_name = 'articles'
