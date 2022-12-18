@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import F
 from django.http import HttpResponse
 from django.urls import reverse_lazy, reverse
 from django.views.generic import (ListView,
@@ -7,7 +8,6 @@ from django.views.generic import (ListView,
                                   UpdateView,
                                   DeleteView)
 
-from django.views.generic.edit import FormMixin
 from articles.models import Article, Comment
 from .forms import CommentForm
 # Create your views here.
@@ -16,18 +16,23 @@ class HomeView(ListView):
     model = Article
     template_name = 'articles/home.html'
     context_object_name = 'article_list'
-
+"""
 
 class ArticleDetailView(DetailView):
     model = Article
     slug_field = 'slug'
     template_name = 'articles/detail.html'
     context_object_name = 'blog'
-
+"""
 
 
 def article_view(request, slug):
-    blog = Article.objects.get(slug=slug)
+    blog = get_object_or_404(Article, slug=slug)
+    blog.views = F('views') + 1
+    blog.save(update_fields=['views'])
+
+    popular_articles = Article.objects.order_by('-views')[:5]
+
     comment_form = CommentForm()
 
     if request.method == 'POST':
@@ -39,6 +44,7 @@ def article_view(request, slug):
     context = {
         'blog': blog,
         'form': comment_form,
+        'popular_articles': popular_articles,
     }
     return render(request, "articles/detail.html", context)
 

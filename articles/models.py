@@ -16,6 +16,8 @@ class Article(models.Model):
     publish_timestamp = models.DateTimeField(auto_now_add=True)
     edited_timestamp = models.DateTimeField(auto_now=True)
 
+    views = models.BigIntegerField(default=0)
+
     def get_absolute_url(self):
         return reverse('articles:detail', kwargs={'slug': self.slug})
 

@@ -30,7 +30,7 @@ DEBUG = False
 
 ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 
-ALLOWED_HOSTS = ["lifology.site", "www.lifology.site", "localhost", "68.178.166.148"]
+ALLOWED_HOSTS = ["lifology.site", "www.lifology.site", "localhost"]
 
 if ENV_ALLOWED_HOST is not None:
     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]

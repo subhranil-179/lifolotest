@@ -1,0 +1,33 @@
+<style>
+    .popular-blogs{
+        margin-inline: auto;
+        margin-bottom: 2rem;
+    }
+    .popular-blog{
+        display: flex;
+        margin-inline: auto;
+        margin-block: 1rem;
+        max-width: 640px;
+        border-top: 2px solid var(--bs-gray);
+    }
+    .popular-blog img{
+        margin: 0.5rem;
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .popular-blog div{
+        margin: 0.5rem;
+    }
+</style>
+<div class="popular-blogs">
+    <h4 class="text-center">Popular Articles</h4>
+    {% for article in popular_articles %}
+    <div class="popular-blog">
+        <img src="{{article.images.last.image.url}}" alt="" width=100>
+        <div>
+            <h5><a href="{% url 'articles:detail' article.slug %}">{{article.title|truncatewords:6}}</a></h5>
+            <p style="padding: 0;">{{article.description|truncatewords:12}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

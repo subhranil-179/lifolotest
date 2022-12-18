@@ -1,6 +1,5 @@
 from django.urls import path
 from articles.views import (HomeView,
-                            ArticleDetailView,
                             ArticleCreateView,
                             ArticleUpdateView,
                             ArticleDeleteView)
