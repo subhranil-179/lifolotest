@@ -11,7 +11,7 @@ class Article(models.Model):
     content = models.TextField()
     keywords = models.CharField(max_length=200, default="")
     description = models.CharField(max_length=600, default="")
-    canonical = models.URLField(max_length=300, default="")
+    canonical = models.URLField(max_length=300, default="", blank=True, null=True)
     slug = models.SlugField(max_length=300)
     publish_timestamp = models.DateTimeField(auto_now_add=True)
     edited_timestamp = models.DateTimeField(auto_now=True)

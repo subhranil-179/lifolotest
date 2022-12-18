@@ -60,3 +60,9 @@ class ArticleDeleteView(DeleteView):
     template_name = 'articles/delete.html'
     success_url = reverse_lazy('article:home')
 
+
+
+def fix(request):
+    blog = Article.objects.get(slug="10-best-stress-relieving-activities")
+    return render(request, "articles/fix.html", {"blog": blog})
+    # return redirect(reverse("articles:detail", kwargs={"slug": "10-best-stress-relieving-activities"}))
