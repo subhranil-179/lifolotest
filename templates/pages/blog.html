@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
-{% block title %} Blog {% endblock title %}
 {% block style %}
 <style>
+    p{
+        padding-left: 1rem;
+    }
+    table{
+        margin-left: 1rem;
+    }
+    .fix-scroll{
+        scroll-margin: calc(80px + 1rem) 0 0 0;
+    }
     .table-of-contents-container  ol { counter-reset: item }
     .table-of-contents-container li{ display: block }
     .table-of-contents-container li:before { content: counters(item, ".") " "; counter-increment: item }
@@ -116,195 +124,118 @@
 {% block body %}
 {% load static %}
 <div class="container" id="container-95p">
-    <h1 class="main-heading">Master the art of stress relieving with these 10 activities: scientifically proven</h1>
+    <h1 class="main-heading">MEDITATION</h1>
     <section class="outermost-article-container">
         <nav class="table-of-contents-container container">
             <h3>Table of contents</h3>
             <ol class="table-of-contents">
-                <li><a href="">What is stress?</a>
-                    <ol class="sub-toc-link">
-                        <li><a href="">Types of stress</a></li>
-                    </ol>
-                </li>
-                <li><a href="">Stress V/S anxiety</a>
-                    <ol class="sub-toc-link">
-                        <li><a href="">Difference between stress and anxiety</a></li>
-                    </ol>
-                </li>
-                <li><a href="#hello">Best stress relieving activites</a>
-                    <ol class="sub-toc-link">
-                        <li><a href="">Deep breathing</a></li>
-                        <li><a href="">Listening to music</a></li>
-                        <li><a href="">Walking</a></li>
-                        <li><a href="">Close eyes</a></li>
-                        <li><a href="">Meditate</a></li>
-                        <li><a href="">Laugh</a></li>
-                        <li><a href="">Write</a></li>
-                        <li><a href="">Talk</a></li>
-                        <li><a href="">Try something new</a></li>
-                        <li><a href="">Gratitude</a></li>
-                    </ol>
-                </li>
-                <li><a href="#hello">Conclusion</a></li>
+                <li><a href="#what-is-meditation">What is meditation</a></li>
+                <li><a href="#benefits-of-meditation">Benefits of meditation</a></li>
+                <li><a href="#steps">How to do meditation step by step</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
             </ol>
         </nav>
         <main>
             <article>
                 <section>
                     <h2>Introduction</h2>
-                    <p>Stress has now become the most used term in everyone’s life. We can observe everybody saying that I have stress for my exams, I have stress in my work, stress in daily life etc. Everyone faces the same problem that is “stress”.<br>We all want us to get relieve from all the stresses in our life but we are not able to get relief from stress. In this you case, you can do some activities, which will help you in getting relief from stress. So, in this article you will read what is stress, difference between stress and anxiety because there is a misconception between stress and anxiety and the 10 best stress-relieving activities.</p>
-                    <figure class="image-container">
-                        <img src="/" alt="">
-                        <figcaption>Google Analytics</figcaption>
-                    </figure>
+                    <p>You all have heard that we all should do meditation, even for once in a day or more if we can. Then, obviously there will be a number of benefits of meditation. So, let’s read in this article about what is the meaning of meditation, benefits of meditation and finally how to do meditation and conclusion.</p>
                 </section>
-                <section>
-                    <h2>What is stress?</h2>
-                    <p>Stress is the situation when a person thinks a lot about something continuously like stress for exam or exam result, financial problems, personal problems, health problems etc. It makes us feel angry, frustrated and nervous.</p>
+                <section id="what-is-meditation" class="fix-scroll">
+                    <h2>What is meditation?</h2>
+                    <p>Meditation is the practice of clearing all the thoughts and stress for some time and just focusing on a particular thing. Just like you do physical exercises for your body, which helps you to remain healthy, active and energetic; your mind also requires exercises for better functioning, focus and concentration. Meditation is one of the most ancient mental exercises. The oldest form of meditation was discovered around 1500 BCE and still now you can see most of the people doing meditation, so as to remain more focused, calm, concentrated in their work and for being healthy in their day to day life.</p>
 					<br>
-					<p>According to Wikipedia, in psychology, stress means feeling of emotional stress and pressure. Stress can be classified as short-term stress and long-term stress. Stress is not always bad if it makes us to take better steps and decisions but it is bad if your stress does not results in something useful.</p>
-					<p>For example, if you are taking stress for your exams and after thinking a lot about your exams you started studying but in the other case, you are just taking a lot of stress and not taking any action. In the first case, stress is good because it made you to take a valuable action but in the second case, stress is bad because it only make you to over think.</p>
-                    <!--
+					<p>You can also say or consider meditation as a skill which takes time to get mastered because forgetting everything and just concentrating on a particular thing isn’t that much easy task. You have to do meditation daily for mastering it and by reading this, you can get the idea that meditation has a number of benefits that is why it is still prevalent in now a day’s also and more people are eager to learn it.</p>
                     <figure class="image-container">
-                        <img src="{% static 'images/pages/3.png' %}" alt="">
-                        <figcaption>Fig. 2</figcaption>
+                        <img src="/media/images/articles/2022/12/19/yoga.jpg" alt="A woman meditating">
                     </figure>
-                    -->
-                    <article>
-                        <h3>Types of Stress</h3>
-                        <h4 class="text-center centered-box">STRESS</h4>
-                        <table>
-                            <tr>
-                                <th><h5>Acute Stress</h5></th>
-                                <th><h5>Chronic Stress</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Acute stress is the stress, which happens for a very short period loke for hours or some days.</td>
-                                <td>Chronic stress is the stress, which happens for a longer period like for weeks or months.</td>
-                            </tr>
-                            <tr>
-                                <td>Acute stress helps us to get rid of the problems of our life, by taking strress for shorter time and then taking valuble actions.</td>
-                                <td>Chronic stress leads to serious health problems as it only makes us to over think a lot about a particular situation</td>
-                            </tr>
-                        </table>
-                    </article>
+                    <p>Now, if you know what is the meaning of meditation is or what is meditation, let's know the benefits of meditation.</p>
                 </section>
-                <section id="hello">
-                    <h2>Stress V/S Anxiety</h2>
-                    <p>Most of the people think that stress and anxiety are the same terms or they use it interchangeably. However, this is not correct; stress and anxiety are not the same terms. Yes, to a some extent they are same but not completely.</p>
-                    <h3>Difference between stress and anxiety</h3>
-                    <p> In general, stress happens for a short term but anxiety happens for a long term. If the condition or situation, which was giving us, stress (stressor) passes away and we stop thinking about that, then the situation will be of stress. However, even after the stressor passes away, we still over think about a situation continuously with negative thoughts, then this are anxiety. Anxiety causes excessive worries.</p>
-                    <p>The three symptoms that are common in stress and anxiety are sleeping problems, fatigue and muscle aches and headaches.</p>
+                <section  id="benefits-of-meditation" class="fix-scroll">
+                    <h2>Benefits of meditation</h2>
+                    <ul class="lsn">
+                        <li>
+                            <h3>Improves mental health</h3>
+                            <p>Meditation improves your mental health, you can observe many changes after doing meditation, and you will feel very relaxed after doing meditation. It will make you mentally healthy and give you better results.</p>
+                            <figure class="image-container">
+                                <img src="/media/images/articles/2022/12/19/mental-health.jpg" alt="mental health">
+                            </figure>
+                        </li>
+                        <li>
+                            <h3>Improves focus and concentration</h3>
+                            <p>Meditation helps in increasing focus and concentration. After doing meditation you will feel more focused and concentrated than before. You can be more focused and concentrated after doing meditation.</p>
+                            <figure class="image-container">
+                                <img src="/media/images/articles/2022/12/19/focus.jpg" alt="focus">
+                            </figure>
+                        </li>
+                        <li>
+                            <h3>Improves energy</h3>
+                            <p>Meditation also helps in increasing energy. Like you feel more energetic after doing physical exercises, mental exercise which is meditation helps in increasing energy and you can do all your work with more efficiency.</p>
+                            <figure class="image-container">
+                                <img src="/media/images/articles/2022/12/19/run.jpg" alt="running">
+                            </figure>
+                        </li>
+                        <li>
+                            <h3>Reduces stress and anxiety</h3>
+                            <p>If you feel that you are stressed and full of anxiety, then meditation is the best and natural treatment you can give to yourself. Meditation helps in reducing your stress and anxiety, if you do it correctly.</p>
+                            <figure class="image-container">
+                                <img src="/media/images/articles/2022/12/19/looser.jpg" alt="a loser person">
+                            </figure>
+                        </li>
+                        <li>
+                            <h3>Helps to remain clam</h3>
+                            <p>Meditation will help you in remaining calm in your everyday life. You can take better decisions and observe less anger in yourself. You can act very calmly and patiently in your day to day life.</p>
+                            <figure class="image-container">
+                                <img src="/media/images/articles/2022/12/19/woman.jpg" alt="a calm woman">
+                            </figure>
+                            <p>Therefore, by reading this now you are aware about the benefits of doing meditation. These are some of the major benefits of doing meditation. Now, let’s know about how to do meditation.</p>
+                        </li>
+                    </ul>
                 </section>
                 <section>
-                    <article>
-                        <h2>10 Best stress relieving activities</h2>
-                        <p>Now, let us read the 10 best ways of relieving stress. By following, the activiteis you will surely help in geeting relieve from your stresses.</p>
-                        <ol>
+                    <article id="steps" class="fix-scroll">
+                        <h2>How to do meditation</h2>
+                        <p>If you are just a beginner and want to start meditation, then simply follow these steps:</p>
+                        <ol class="lsn">
                             <li>
                                 <section>
-                                    <h3>Deep Breathing</h3>
-                                    <p>Researchers have shown that deep breathing helps in stress reduction. By deep breathing, you take more oxygen in which makes our heart rate slower and the over; thinking of things also slows down.  Deep breathing directly affects our brain and makes us calmer. Thus, it helps a lot in stress relievement.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/deep_breathing.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
+                                    <h3>Step 1</h3>
+                                    <p>Select a place in your home or surrounding which is quiet and calm where no one will disturb you while meditating. Always select a noise free place where you can do meditation with full focus and concentration without any interruption.</p>
                                 </section>
                             </li>
                             <li>
                                 <section>
-                                    <h3>Listening to music</h3>
-                                    <p>Music relaxes and calms down our mind and body. Researchers have shown that music especially classical music makes our nervous system calm and thus helps in reducing stress. You can listen to any classical music according to your choice to get relief from stress.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/music.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
+                                    <h3>Step 2</h3>
+                                    <p>Sit according to the position in which you feel comfortable whether you sit by crossing your legs, sitting upon your knees etc. according to your level of comfort.</p>
                                 </section>
                             </li>
                             <li>
                                 <section>
-                                    <h3>Walking</h3>
-                                    <p>Walking helps a lot in stress relievment, you can walk in a park, in neighboring place or in garden. Try to choose a place where you can find peace and beautiful scenery. Therefore, that it will refresh your mood and will automatically feel better and get relieve from stress.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/walking.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
+                                    <h3>Step 3</h3>
+                                    <p>Sit according to the position in which you feel comfortable whether you sit by crossing your legs, sitting upon your knees etc. according to your level of comfort.</p>
                                 </section>
                             </li>
                             <li>
                                 <section>
-                                    <h3>Close eyes</h3>
-                                    <p>Closing eyes makes our mind and muscles more relaxed. Close your eyes and just think about your present, do not think about your stress. Try to think positive about yourself and your life. Try to divert your mind from the stressor to positive things. You can also rub your palms together and give heat to your eyes using your palms; this will make you feel better.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/close_eyes.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
+                                    <h3>Step 4</h3>
+                                    <p>Try to keep your 100% focus and concentration in meditation not on your daily life stress and anxieties. When you are a beginner and just started doing meditation you will observe your mind going in different directions but don’t worry you will get rid of this problem with time and practice. Whenever you will feel your mind going in different directions try to get back at your present moment i.e. meditation and concentrate on your breathe again.</p>
                                 </section>
+                                <aside><span>Time</span> – Select the time according to you, you can even start with few minutes i.e. 5 minutes of meditation to 10 minutes and then later on increase it with practice.</aside>
                             </li>
                             <li>
                                 <section>
-                                    <h3>Meditate</h3>
-                                    <p>Meditation is one of the best stress reliever. Meditation helps to focus at one place; it makes our mind to concentrate at a place rather than over thinking about different things. Daily you should practice meditation for 20-25 minutes or more according to your comfort.</p>
+                                    <h3>Step 5</h3>
+                                    <p>Now simply open your eyes and relax for few minutes and then slowly get up. Do not get back to work just after doing meditation, relax for few minutes and then get back to work.</p>
                                     <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/meditate.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Laugh</h3>
-                                    <p>Try to laugh in every situation of life. Laughing reduces your mental load and gives relieve from stress. Laughing helps to feel us happier and joyful. It also reduces our stress hormones. So, try to laugh more and more.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/laugh.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Write</h3>
-                                    <p>By writing, the things down you can get relief from your stress. Write down all the things by which you are feeling stressed. After writing them on a paper, you will feel relaxed and calmer. Writing helps you to know more about yourself.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/write.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Talk</h3>
-                                    <p>Talk with a person whom you can share your feelings or the reason of stress. By talking to someone you, can get some relieve from a lot of stress and feel better. You can talk to anyone your family members or friends whomever you want.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/talk.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Try something new</h3>
-                                    <p>Try to do something different when you have stress of something. It is the best way of distracting your mind from stress. When you will learn something new, it will make your mind to concentrate on learning rather than stress.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/learn_something_new.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
-                                    </figure>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Gratitude</h3>
-                                    <p>When we express gratitude, our brain releases two hormones, i.e. Dopamine and Serotonin, which makes us, feel good. This helps in stress reduction. Show gratitude for what good you have in your life rather than thinking and regretting for what you do not have.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/08/gratitude.jpg" alt="">
-                                        <figcaption>Google Analytics</figcaption>
+                                        <img src="/media/images/articles/2022/12/19/meditate.jpg" alt="woman meditating">
                                     </figure>
                                 </section>
                             </li>
                         </ol>
-					<section>
+					<section id="conclusion" class="fix-scroll">
 						<h2>Conclusion</h2>
-						<p>In this article, you read about what is stress, the difference between stress and anxiety and the 10 best ways of stress relievement or stress relievement activities. Stress is common in everyone but when it exceeds limit, causes many problems including physical, mental and emotional. Try to follow these scientifically proven activities to reduce your stress.</p>
+						<p>After reading this article now, you are aware about what are meditation and how to do meditation step by step and some of the meditation benefits. Meditation is one of the most beneficial practices, which you should do whether you are a student or a working person for keeping your mind healthy and for improving productivity.</p>
+                        <span>Hope you liked this article.</span>
 					</section>
                     </article>
                 </section>
