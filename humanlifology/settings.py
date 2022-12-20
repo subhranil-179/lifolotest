@@ -16,7 +16,7 @@ import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
+#dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +26,7 @@ dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = os.environ.get('SEC_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 
@@ -88,6 +88,7 @@ WSGI_APPLICATION = 'humanlifology.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -106,7 +107,6 @@ DATABASES = {
         'NAME': '/home/subhranil/latest/db.sqlite3',
     }
 }
-'''
 
 
 # Password validation

@@ -95,6 +95,20 @@
     .fix-scroll{
         scroll-margin: calc(80px + 1rem) 0 0 0;
     }
+    .note{
+        color: var(--bs-gray);
+        border-left: 1px solid black;
+        border-rai: bor;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        background: aliceblue;
+        margin-bottom: 1rem;
+    }
+    .note-about{
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 1.2rem;
+    }
     @media (min-width: 0) and (max-width: 991px){
         .outermost-article-container{
             flex-direction: column;
@@ -122,14 +136,35 @@
 </style>
 {% endblock style %}
 {% block head %}
+{% if blog.schema1 %}
+<script type="application/ld+json">
+{{blog.schema1}}
+</script>
+{% endif %}
 <meta name="description" content="{{blog.description}}">
 <meta name="keywords" content="{{blog.keywords}}">
 <meta name="author" content="Suprobha Saikat">
+
+<meta property="og:title" content="{{blog.title}}">
+<meta property="og:site_name" content="Lifology.site">
+<meta property="og:url" content="https://www.lifology.site/article/{{blog.slug}}/">
+<meta property="og:description" content="{{blog.description}}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="{{article.images.last.image.url}}">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="Lifology.site">
+<meta name="twitter:title" content="{{blog.title}}">
+<meta name="twitter:description" content="{{blog.description}}">
+<meta name="twitter:image" content="{{article.images.last.image.url}}">
+
+
 {% if blog.canonical %}
 <link rel="canonical" href="{{blog.canonical}}" />
 {% endif %}
 {% endblock head %}
-{% block title %} Lifology | {{blog.title}} {% endblock title %}
+{% block title %}{{blog.title}}{% endblock title %}
 {% block body %}
 {% load static %}
 <div class="container" id="container-95p">

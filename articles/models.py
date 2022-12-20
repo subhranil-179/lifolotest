@@ -7,15 +7,27 @@ from datetime import datetime
 # Create your models here.
 
 class Article(models.Model):
+    # SEO
     title = models.CharField(max_length=200)
-    content = models.TextField()
-    keywords = models.CharField(max_length=200, default="")
     description = models.CharField(max_length=600, default="")
-    canonical = models.URLField(max_length=300, default="", blank=True, null=True)
+    keywords = models.CharField(max_length=200, default="")
     slug = models.SlugField(max_length=300)
+    canonical = models.URLField(max_length=300, default="", blank=True, null=True)
+
+    # Schema (SEO)
+
+    schema1 = models.JSONField(default=str, blank=True, null=True)
+    schema2 = models.JSONField(default=str, blank=True, null=True)
+    schema3 = models.JSONField(default=str, blank=True, null=True)
+
+    # Content
+    content = models.TextField()
+
+    #Time
     publish_timestamp = models.DateTimeField(auto_now_add=True)
     edited_timestamp = models.DateTimeField(auto_now=True)
 
+    # Feed
     views = models.BigIntegerField(default=0)
 
     def get_absolute_url(self):
