@@ -3,6 +3,7 @@
 <style>
     p{
         padding-left: 1rem;
+        color: black;
     }
     table{
         margin-left: 1rem;
@@ -137,9 +138,13 @@
 {% endblock style %}
 {% block head %}
 {% if blog.schema1 %}
-<script type="application/ld+json">
-{{blog.schema1}}
-</script>
+{{blog.schema1|safe}}
+{% endif %}
+{% if blog.schema2 %}
+{{blog.schema2|safe}}
+{% endif %}
+{% if blog.schema3 %}
+{{blog.schema3|safe}}
 {% endif %}
 <meta name="description" content="{{blog.description}}">
 <meta name="keywords" content="{{blog.keywords}}">
@@ -150,14 +155,18 @@
 <meta property="og:url" content="https://www.lifology.site/article/{{blog.slug}}/">
 <meta property="og:description" content="{{blog.description}}">
 <meta property="og:type" content="article">
-<meta property="og:image" content="{{article.images.last.image.url}}">
+{% if blog.images.last.image.url %}
+<meta property="og:image" content="https://lifology.site{{blog.images.last.image.url}}">
+{% endif %}
 
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="Lifology.site">
 <meta name="twitter:title" content="{{blog.title}}">
 <meta name="twitter:description" content="{{blog.description}}">
-<meta name="twitter:image" content="{{article.images.last.image.url}}">
+{% if blog.images.last.image.url %}
+<meta name="twitter:image" content="https://lifology.site{{blog.images.last.image.url}}">
+{% endif %}
 
 
 {% if blog.canonical %}

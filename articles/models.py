@@ -16,9 +16,9 @@ class Article(models.Model):
 
     # Schema (SEO)
 
-    schema1 = models.JSONField(default=str, blank=True, null=True)
-    schema2 = models.JSONField(default=str, blank=True, null=True)
-    schema3 = models.JSONField(default=str, blank=True, null=True)
+    schema1 = models.TextField(blank=True, null=True)
+    schema2 = models.TextField(blank=True, null=True)
+    schema3 = models.TextField(blank=True, null=True)
 
     # Content
     content = models.TextField()
