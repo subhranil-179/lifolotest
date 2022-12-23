@@ -9,8 +9,9 @@ from datetime import datetime
 class Article(models.Model):
     # SEO
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=600, default="")
-    keywords = models.CharField(max_length=200, default="")
+    meta_description = models.CharField(max_length=600, default="")
+    meta_title = models.CharField(max_length=200, default="")
+    keywords = models.CharField(max_length=600, default="")
     slug = models.SlugField(max_length=300)
     canonical = models.URLField(max_length=300, default="", blank=True, null=True)
 

@@ -4,6 +4,22 @@
     p{
         padding-left: 1rem;
         color: black;
+        font-weight: 500;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-weight: 600;
+    }
+    table{
+        margin-left: 1rem;
+    }
+    .fix-scroll{
+        scroll-margin: calc(80px + 1rem) 0 0 0;
+    }
+    .all-inline *{
+        display: inline;
+    }
+    .lsd{
+        list-style: disc;
     }
     table{
         margin-left: 1rem;
@@ -93,16 +109,13 @@
     .sub-toc-link{
         list-style: lower-alpha;
     }
-    .fix-scroll{
-        scroll-margin: calc(80px + 1rem) 0 0 0;
-    }
     .note{
         color: var(--bs-gray);
         border-left: 1px solid black;
         border-rai: bor;
         border-radius: 0.25rem;
         padding: 0.5rem;
-        background: aliceblue;
+        background: #ccd2d7;
         margin-bottom: 1rem;
     }
     .note-about{
@@ -150,7 +163,7 @@
 <meta name="keywords" content="{{blog.keywords}}">
 <meta name="author" content="Suprobha Saikat">
 
-<meta property="og:title" content="{{blog.title}}">
+<meta property="og:title" content="{{blog.meta_title}}">
 <meta property="og:site_name" content="Lifology.site">
 <meta property="og:url" content="https://www.lifology.site/article/{{blog.slug}}/">
 <meta property="og:description" content="{{blog.description}}">
@@ -162,7 +175,7 @@
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="Lifology.site">
-<meta name="twitter:title" content="{{blog.title}}">
+<meta name="twitter:title" content="{{blog.meta_title}}">
 <meta name="twitter:description" content="{{blog.description}}">
 {% if blog.images.last.image.url %}
 <meta name="twitter:image" content="https://lifology.site{{blog.images.last.image.url}}">
@@ -173,7 +186,7 @@
 <link rel="canonical" href="{{blog.canonical}}" />
 {% endif %}
 {% endblock head %}
-{% block title %}{{blog.title}}{% endblock title %}
+{% block title %}{{blog.meta_title}}{% endblock title %}
 {% block body %}
 {% load static %}
 <div class="container" id="container-95p">

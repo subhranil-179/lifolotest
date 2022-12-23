@@ -4,12 +4,22 @@
     p{
         padding-left: 1rem;
         color: black;
+        font-weight: 500;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-weight: 600;
     }
     table{
         margin-left: 1rem;
     }
     .fix-scroll{
         scroll-margin: calc(80px + 1rem) 0 0 0;
+    }
+    .all-inline *{
+        display: inline;
+    }
+    .lsd{
+        list-style: disc;
     }
     .table-of-contents-container  ol { counter-reset: item }
     .table-of-contents-container li{ display: block }
@@ -105,7 +115,7 @@
         border-rai: bor;
         border-radius: 0.25rem;
         padding: 0.5rem;
-        background: aliceblue;
+        background: #ccd2d7;
         margin-bottom: 1rem;
     }
     .note-about{
@@ -142,120 +152,116 @@
 {% block body %}
 {% load static %}
 <div class="container" id="container-95p">
-    <h1 class="main-heading">MEDITATION</h1>
+    <h1 class="main-heading">What is flow state and how to achieve flow of state?</h1>
     <section class="outermost-article-container">
         <nav class="table-of-contents-container container">
             <h3>Table of contents</h3>
             <ol class="table-of-contents">
-                <li><a href="#what-is-meditation">What is meditation</a></li>
-                <li><a href="#benefits-of-meditation">Benefits of meditation</a></li>
-                <li><a href="#steps">How to do meditation step by step</a></li>
+                <li><a href="#flow-state">What is Flow State</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                    <ol class="sub-toc-link">
+                        <li><a href="#motivation">Motivation</a></li>
+                        <li><a href="#positive-feelings">Positive feelings</a></li>
+                        <li><a href="#concentration">Concentration</a></li>
+                    </ol>
+                </li>
+                <li><a href="#flow-state-feel">What does Flow State feel like?</a></li>
+                <li><a href="#flow-state-vs-mindfulness">Flow State v/s Mindfulness</a></li>
+                <li><a href="#how-to">How to achieve flow of state?</a></li>
+                    <ol class="sub-toc-link">
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#goals">Set goals</a></li>
+                        <li><a href="#balance">Stay in balance</a></li>
+                    </ol>
+                </li>
                 <li><a href="#conclusion">Conclusion</a></li>
             </ol>
         </nav>
         <main>
             <article>
                 <section>
-                    <h2>Introduction</h2>
-                    <p>You all have heard that we all should do meditation, even for once in a day or more if we can. Then, obviously there will be a number of benefits of meditation. So, let’s read in this article about what is the meaning of meditation, benefits of meditation and finally how to do meditation and conclusion.</p>
+                    <p>You might have noticed that while doing some work you get completely submerged but in some you, are not enough focused and concentrated. This is where the flow state comes. In this article, you will read about what is flow state and how to achieve it. In addition, you will also read some other things related to flow state.</p>
                 </section>
-                <section id="what-is-meditation" class="fix-scroll">
-                    <h2>What is meditation?</h2>
-                    <p>Meditation is the practice of clearing all the thoughts and stress for some time and just focusing on a particular thing. Just like you do physical exercises for your body, which helps you to remain healthy, active and energetic; your mind also requires exercises for better functioning, focus and concentration. Meditation is one of the most ancient mental exercises. The oldest form of meditation was discovered around 1500 BCE and still now you can see most of the people doing meditation, so as to remain more focused, calm, concentrated in their work and for being healthy in their day to day life.</p>
-					<br>
-					<p>You can also say or consider meditation as a skill which takes time to get mastered because forgetting everything and just concentrating on a particular thing isn’t that much easy task. You have to do meditation daily for mastering it and by reading this, you can get the idea that meditation has a number of benefits that is why it is still prevalent in now a day’s also and more people are eager to learn it.</p>
+                <section id="flow-state" class="fix-scroll">
+                    <h2>What is flow of state</h2>
+                    <p>Flow of state is the state when we are deeply focused on our work or the activity we are performing. The state of mind where no distractions can take our attention from our work to other thing or place. This type of state of mind is called flow state.</p>
+                    <p>Flow state is the state of mind when we are completely immersed and absorbed while doing or performing an activity. If you get distracted by anything while doing your work, it means that you are not focused. You are not in a flow state. Flow state is the state when you forgets about the time and is completely submerged in your work. Your focus remains just on your work and not what is happening in your surroundings.</p>
+                    <p>According to <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank">Wikipedia</a>, in psychology flow state refers to the state of mind in which the person remains fully focused, enjoyed and energized.</p>
                     <figure class="image-container">
-                        <img src="/media/images/articles/2022/12/19/yoga.jpg" alt="A woman meditating">
+                        <img src="/media/images/articles/2022/12/24/reading.jpg" alt="flow state">
                     </figure>
-                    <p>Now, if you know what is the meaning of meditation is or what is meditation, let's know the benefits of meditation.</p>
                 </section>
-                <section  id="benefits-of-meditation" class="fix-scroll">
-                    <h2>Benefits of meditation</h2>
+                <section id="examples" class="fix-scroll">
+                    <h2>Example of flow of state</h2>
+                    <p>Suppose that you are a person who loves to read books. You read books each day. In addition, if you are feeling energized, excited, focused and nothing can distract you from reading books each time then you are in flow state.</p>
+                    <p> Flow state varies in each person, according to the person’s hobbies, skills and interest.</p>
+                </section>
+                <section  id="benefits" class="fix-scroll">
+                    <h2>Benefits of flow state</h2>
+                    <p>There are a number of benefits of achieving a flow state. Obviously, if you are focused and super energetic in your work then the outputs of your work will be outstandable. Let’s see some of the benefits of flow state.</p>
                     <ul class="lsn">
-                        <li>
-                            <h3>Improves mental health</h3>
-                            <p>Meditation improves your mental health, you can observe many changes after doing meditation, and you will feel very relaxed after doing meditation. It will make you mentally healthy and give you better results.</p>
-                            <figure class="image-container">
-                                <img src="/media/images/articles/2022/12/19/mental-health.jpg" alt="mental health">
-                            </figure>
+                        <li id="motivation" class="fix-scroll">
+                            <h3>Motivation</h3>
+                            <p>Flow state provides you motivation because when you will be in your flow state, you will get your most of the things done on time, which will provide you motivation. You will be motivated to do more and more things.</p>
                         </li>
-                        <li>
-                            <h3>Improves focus and concentration</h3>
-                            <p>Meditation helps in increasing focus and concentration. After doing meditation you will feel more focused and concentrated than before. You can be more focused and concentrated after doing meditation.</p>
-                            <figure class="image-container">
-                                <img src="/media/images/articles/2022/12/19/focus.jpg" alt="focus">
-                            </figure>
+                        <li id="positive-feelings" class="fix-scroll">
+                            <h3>Positive-feelings</h3>
+                            <p>Flow state fills you with positive feelings because you worked with full energy and productivity and also you are getting the results then you will be automatically filled with positive feelings. In addition, the positive feelings will encourage you to make yourself better each day in your work.</p>
                         </li>
-                        <li>
-                            <h3>Improves energy</h3>
-                            <p>Meditation also helps in increasing energy. Like you feel more energetic after doing physical exercises, mental exercise which is meditation helps in increasing energy and you can do all your work with more efficiency.</p>
+                        <li id="concentration" class="fix-scroll">
+                            <h3>Concentration</h3>
+                            <p>Flow of state increases your concentration on your work. You get absorbed in your work completely and thus it increases your concentration. Concentration is the most important thing while doing any work. If you are not concentrated in, your work then cannot you achieve success.</p>
                             <figure class="image-container">
-                                <img src="/media/images/articles/2022/12/19/run.jpg" alt="running">
+                                <img src="/media/images/articles/2022/12/24/work.jpg" alt="working on laptop">
                             </figure>
-                        </li>
-                        <li>
-                            <h3>Reduces stress and anxiety</h3>
-                            <p>If you feel that you are stressed and full of anxiety, then meditation is the best and natural treatment you can give to yourself. Meditation helps in reducing your stress and anxiety, if you do it correctly.</p>
-                            <figure class="image-container">
-                                <img src="/media/images/articles/2022/12/19/looser.jpg" alt="a loser person">
-                            </figure>
-                        </li>
-                        <li>
-                            <h3>Helps to remain clam</h3>
-                            <p>Meditation will help you in remaining calm in your everyday life. You can take better decisions and observe less anger in yourself. You can act very calmly and patiently in your day to day life.</p>
-                            <figure class="image-container">
-                                <img src="/media/images/articles/2022/12/19/woman.jpg" alt="a calm woman">
-                            </figure>
-                            <p>Therefore, by reading this now you are aware about the benefits of doing meditation. These are some of the major benefits of doing meditation. Now, let’s know about how to do meditation.</p>
                         </li>
                     </ul>
                 </section>
-                <section>
-                    <article id="steps" class="fix-scroll">
-                        <h2>How to do meditation</h2>
-                        <p>If you are just a beginner and want to start meditation, then simply follow these steps:</p>
-                        <ol class="lsn">
-                            <li>
-                                <section>
-                                    <h3>Step 1</h3>
-                                    <p>Select a place in your home or surrounding which is quiet and calm where no one will disturb you while meditating. Always select a noise free place where you can do meditation with full focus and concentration without any interruption.</p>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Step 2</h3>
-                                    <p>Sit according to the position in which you feel comfortable whether you sit by crossing your legs, sitting upon your knees etc. according to your level of comfort.</p>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Step 3</h3>
-                                    <p>Sit according to the position in which you feel comfortable whether you sit by crossing your legs, sitting upon your knees etc. according to your level of comfort.</p>
-                                </section>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Step 4</h3>
-                                    <p>Try to keep your 100% focus and concentration in meditation not on your daily life stress and anxieties. When you are a beginner and just started doing meditation you will observe your mind going in different directions but don’t worry you will get rid of this problem with time and practice. Whenever you will feel your mind going in different directions try to get back at your present moment i.e. meditation and concentrate on your breathe again.</p>
-                                </section>
-                                <aside><span>Time</span> – Select the time according to you, you can even start with few minutes i.e. 5 minutes of meditation to 10 minutes and then later on increase it with practice.</aside>
-                            </li>
-                            <li>
-                                <section>
-                                    <h3>Step 5</h3>
-                                    <p>Now simply open your eyes and relax for few minutes and then slowly get up. Do not get back to work just after doing meditation, relax for few minutes and then get back to work.</p>
-                                    <figure class="image-container">
-                                        <img src="/media/images/articles/2022/12/19/meditate.jpg" alt="woman meditating">
-                                    </figure>
-                                </section>
-                            </li>
-                        </ol>
-					<section id="conclusion" class="fix-scroll">
-						<h2>Conclusion</h2>
-						<p>After reading this article now, you are aware about what are meditation and how to do meditation step by step and some of the meditation benefits. Meditation is one of the most beneficial practices, which you should do whether you are a student or a working person for keeping your mind healthy and for improving productivity.</p>
-                        <span>Hope you liked this article.</span>
-					</section>
-                    </article>
+                <section class="all-inline note">
+                    <h2 class="note-about text-primary">How long can a flow state last? - </h2>
+                    <p class="ps-0">A flow state can last from 25-30 minutes or even it can remain for hours. A person can achieve flow of state more than once in a day.</p>
+                </section>
+                <section id="flow-state-feel" class="fix-scroll">
+                    <h2>What does flow state feel like?</h2>
+                    <p>Whenever we are in flow state, we do all our work with 100% focus and concentration. In addition, if we are able to complete our work within time then obviously, we will feel pleasurable. Whenever, you will be in your flow state you will feel energized, engaged in your work completely. You will be enjoyed as well as focused during flow state. You can be eliminated from your stress and worries, whenever you are in flow state. In short, we feel ecstatic, enjoyed and focused during a flow state.</p>
+                </section>
+                <section id="" class="note fix-scroll all-inline">
+                    <h2 class="text-primary note-about">How much time does it take to get into flow state? - </h2>
+                    <p class="ps-0">It takes approximately 15-20 minutes to achieve flow of state, which can remain from 25-30 minutes to hours.</p>
+                </section>
+                <section id="" class="note fix-scroll">
+                    <h2 class="text-primary note-about">What is mindfulness?</h2>
+                    <p>Mindfulness means to do a task by taking your full time with concentration, in a very relaxed and easy way. Mindfulness is the opposite of rushing or being multitasking in a work. Examples of mindfulness activities can be meditation, deep breathing exercies etc.</p>
+                </section>
+                <section id="flow-state-vs-mindfulness" class="fix-scroll">
+                    <h2>Flow State V/S Mindfulness</h2>
+                    <p>Now, let us read what is the difference between flow state and mindfulness.</p>
+                    <p>In simple terms, flow state refers to the state of mind when you are completely absorbed in work and forgets about everything like time, surrounding etc. The only thing you know that you have to do your work with full focus.</p>
+                    <p>However, mindfulness is different from flow state, because in mindfulness state of mind you know what you are doing, you are not completely submerged in what you are doing. You know what is happening in and around your surroundings.</p>
+                    <p>Therefore, this was the difference between mindfulness and flow state. It becomes difficult sometimes to distinguish between mindfulness and flow state. Because they are almost same but not completely. Mindfulness and flow state are the two different states of mind.</p>
+                </section>
+                <section  id="how-to" class="fix-scroll">
+                    <h2>How to achieve flow of state?</h2>
+                    <ul class="lsd">
+                        <li id="skills" class="fix-scroll">
+                            <h3>Skills must match with the task:</h3>
+                            <p>Your skills should match with the tasks you choose for yourself. So, that you can experience flow during your work. For example, a cricketer gets flow state easily because he/she knows how to play cricket or they have skills of playing cricket. Similarly, the tasks you are doing and you also have skills, then there are high chances of getting into flow state.</p>
+                        </li>
+                        <li id="goals" class="fix-scroll">
+                            <h3>Set goals:</h3>
+                            <p>Your goals must be clear before you perform any task. You must be aware of the reason of doing the task. Set goals for your tasks, so that it will remind you repeatedly about your goals and you will remain motivated and energized while doing your work. In addition, the chances increase of getting into flow state.</p>
+                        </li>
+                        <li id="balance" class="fix-scroll">
+                            <h3>Stay in balance</h3>
+                            <p>Stay in the balance of easy and difficult. Do not choose a task for yourself, which is too easy for you and the task, which is too difficult for you. Because if you will choose a very easy task for you then it will make you feel, boring and you will easily lose your interest. Similarly, if you will choose a very difficult task for you then it will make you will frustrated and there are high chances that you will give up your work. Try to choose the task, which is neither too easy nor too hard for you.</p>
+                        </li>
+                    </ul>
+                </section>
+                <section id="conclusion" class="fix-scroll">
+                    <h2>Summary</h2>
+                    <p>Stay in the balance of easy and difficult. Do not choose a task for yourself, which is too easy for you and the task, which is too difficult for you. Because if you will choose a very easy task for you then it will make you feel, boring and you will easily lose your interest. Similarly, if you will choose a very difficult task for you then it will make you will frustrated and there are high chances that you will give up your work. Try to choose the task, which is neither too easy nor too hard for you.</p>
+                    <span>Hope you liked this article.</span>
                 </section>
             </article>
         </main>
