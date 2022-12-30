@@ -45,10 +45,8 @@
     <div class="category">
         <div class="post">
             <h3><a href="{% url 'articles:category' category.category %}">{{category.category}}</a></h3>
-            {% for keyword in category.keywords.all %}
-            {% for article in keyword.article_keywords.all %}
+            {% for article in category.article_categories.all %}
             {% include 'components/card.html' %}
-            {% endfor %}
             {% endfor %}
         </div>
     </div>

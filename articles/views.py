@@ -70,9 +70,9 @@ def fix(request):
     # return redirect(reverse("articles:detail", kwargs={"slug": "10-best-stress-relieving-activities"}))
 
 def category_view(request, category):
-    keywords = Category.objects.get(category=category).keywords.all()
+    article_list = Category.objects.get(category=category).article_categories.all()
     context = {"category": category,
-        "keywords": keywords
+        "article_list": article_list
     }
     return render(request, "articles/category.html", context)
 

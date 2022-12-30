@@ -6,17 +6,12 @@ from datetime import datetime
 from django.contrib.postgres.indexes import GinIndex
 
 # Create your models here.
-KEYWORD_CHOICES = (
-    ("S", "short"),
-    ("L", "long"),
-)
 
-class Keyword(models.Model):
-    keyword = models.CharField(max_length=200)
-    keyword_type = models.CharField(max_length=1, choices=KEYWORD_CHOICES, default="S")
+class Category(models.Model):
+    category = models.CharField(max_length=200)
 
     def __str__(self):
-        return str(self.keyword)
+        return str(self.category)
 
 
 class Article(models.Model):
@@ -24,7 +19,8 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=600, default="")
     meta_title = models.CharField(max_length=200, default="")
-    keywords = models.ManyToManyField(Keyword, related_name="article_keywords")
+    keywords = models.CharField(max_length=600, default="")
+    categories = models.ManyToManyField(Category, related_name="article_categories")
     slug = models.SlugField(max_length=300)
     canonical = models.URLField(max_length=300, default="", blank=True, null=True)
 
@@ -45,10 +41,6 @@ class Article(models.Model):
     views = models.BigIntegerField(default=0)
     featured = models.BooleanField(default=False)
 
-    class Meta:
-        indexes = [
-            GinIndex(name='LifologyGinIndex', fields=['title', 'description', 'content'])
-        ]
 
     def get_absolute_url(self):
         return reverse('articles:detail', kwargs={'slug': self.slug})
@@ -84,9 +76,9 @@ class Images(models.Model):
     def __str__(self):
         return str(self.image)
 
-class Category(models.Model):
-    category = models.CharField(max_length=200)
-    keywords = models.ManyToManyField(Keyword, related_name="section_keywords")
-
-    def __str__(self):
-        return str(self.category)
+"""
+class Meta:
+    indexes = [
+        GinIndex(name='LifologyGinIndex', fields=['title', 'description', 'content'])
+    ]
+"""

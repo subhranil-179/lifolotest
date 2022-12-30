@@ -164,10 +164,10 @@ LOGOUT_REDIRECT_URL = 'articles:home'
 
 """
 CSRF_COOKIE_HTTPONLY = True
+"""
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-"""
 
 SITE_ID=1
 
