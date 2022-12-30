@@ -33,6 +33,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <meta name="p:domain_verify" content="1eb210c613236f7806ff2c231ad08946"/>
@@ -43,13 +44,13 @@
     header{
         position: sticky !important;
         top: 0;
-        z-index: 1;
+        z-index: 100;
     }
     .h-underline{
         text-decoration: underline;
     }
 	*{
-		font-family: 'Montserrat', sans-serif !important;
+        font-family: 'Montserrat', sans-serif;
 	}
     .form-control{
         border: 1px solid #464748;
@@ -160,9 +161,11 @@
         margin-top: 0.5rem;
     }
     .footer{
+        margin-top: 2rem;
         padding-top: 2rem;
         color: var(--bs-white);
         background-color: var(--bs-dark);
+        z-index: 100;
     }
     .footer-width{
         max-width: 1280px;
@@ -229,6 +232,136 @@
         }
 
     }
+
+
+
+
+    :root{
+        --card-width: 400px;
+        --card-margin: .5rem;
+        --card-container-width: 1344px;
+    }
+    @media (min-width: 1744px){
+        :root{
+            --card-container-width: 1744px;
+        }
+    }
+    @media (min-width: 900px) and (max-width: 1344px){
+        :root{
+            --card-container-width: 900px;
+        }
+    }
+    @media (min-width: 486px) and (max-width: 900px){
+        :root{
+            --card-container-width: 476px;
+        }
+    }
+    @media (min-width: 0px) and (max-width: 486px){
+        :root{
+            --card-container-width: 100vw;
+            --card-width: 80vw;
+        }
+        .Card{
+            height: auto !important;
+        }
+        .dates{
+            display: none !important;
+        }
+        .card-bottom{
+            justify-content: flex-end !important;
+        }
+    }
+    .dates{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .dates *{
+        margin: 0;
+        color: var(--bs-gray);
+    }
+    .articles{
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(calc(var(--card-width) + var(--card-margin)), 1fr));
+        width: var(--card-container-width);
+        grid-gap: 1rem;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        justify-content: center;
+    }
+    .Card{
+        width: var(--card-width);
+        height: 250px;
+        margin-inline: auto;
+    }
+    .card-bg{
+        filter: blur(2px);
+        height: 100%;
+        border-radius: 8px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .card-content{
+        z-index: 2;
+        border-radius: 8px;
+        position: relative;
+        top: -100%;
+        height: 100%;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: background-color ease-in-out 500ms;
+    }
+    .card-content:hover{
+        background-color: rgba(0, 0, 0, 0.9);
+        transition: background-color ease-in-out 500ms;
+    }
+    .card-content h2{
+        font-size: 1.5rem;
+        color: #00cc76;
+    }
+    .card-content p{
+        color: white;
+    }
+    .card-content small{
+        color: white;
+    }
+    .underline{
+        width: 80%;
+        height: 2px;
+        background-color: #54e8cc;
+        margin-bottom: 1rem;
+    }
+    .card-bottom{
+        display: flex;
+        justify-content: space-between;
+    }
+    .card-bottom a{
+        text-decoration: none;
+        background-color: #00cc76;
+        color: black;
+        padding: 4px;
+        height: min-content;
+        width: max-content;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: ease-in-out 500ms;
+        transition-property: background-color color; 
+    }
+    .card-bottom a:hover{
+        background-color: transparent;
+        color: #00cc76;
+        transition: ease-in-out 500ms;
+        transition-property: background-color color; 
+    }
+    .truncate{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     </style>
     {% block style %}
     {% endblock style %}
@@ -261,8 +394,8 @@
                   <a class="nav-link text-center active" aria-current="page" href="{% url 'pages:contact_us' %}">Contact Us</a>
                 </li>
               </ul>
-              <form class="d-flex search-form">
-                <input class="form-control me-2" type="search" placeholder="search..." aria-label="Search">
+              <form class="d-flex search-form" action="{% url 'search:search' %}" method="GET">
+                <input class="form-control me-2" type="search" placeholder="search..." aria-label="Search" name="q">
                 <button class="btn btn-outline-success" type="submit">{% include 'svgs/search.svg' %}</button>
               </form>
               <li class="nav-item">

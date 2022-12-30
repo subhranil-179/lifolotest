@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Lifology | {{category}} Articles{% endblock title %}
+{% block body %}
+{% load static %}
+<div class="container">
+    <h1>{{category}} Related Articles</h1>
+    {% for keyword in keywords.all %}
+    {% for article in keyword.article_keywords.all %}
+    {% include 'components/card.html' %}
+    {% endfor %}
+    {% endfor %}
+</div>
+{% endblock body %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block style %}
+<style>
+    .search-form{
+        margin-bottom: 2rem;
+    }
+</style>
+{% endblock style %}
+{% block head %}
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<meta property="og:title" content="{{blog.meta_title}}">
+<meta property="og:site_name" content="Lifology.site">
+<meta property="og:url" content="https://www.lifology.site/article/{{blog.slug}}/">
+<meta property="og:description" content="{{blog.description}}">
+<meta property="og:type" content="article">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="Lifology.site">
+<meta name="twitter:title" content="{{blog.meta_title}}">
+<meta name="twitter:description" content="{{blog.description}}">
+{% if blog.images.last.image.url %}
+<meta name="twitter:image" content="https://lifology.site{{blog.images.last.image.url}}">
+<meta property="og:image" content="https://lifology.site{{blog.images.last.image.url}}">
+{% endif %}
+
+
+<link rel="canonical" href="" />
+{% endblock head %}
+{% block title %}Lifology | Search Blogs{% endblock title %}
+{% block body %}
+{% load static %}
+<div class="container vh-100">
+    <form class="d-flex search-form" action="{% url 'search:search' %}" method="GET">
+        <input class="form-control me-2" type="search" placeholder="search..." aria-label="Search" name="q">
+        <button class="btn btn-outline-success" type="submit">{% include 'svgs/search.svg' %}</button>
+    </form>
+    {% if article_list %}
+    <div class="search-results">
+        {% for article in article_list %}
+        {% include 'components/card.html' %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-results">
+        <h3 class="text-danger">No Results found!</h3>
+        <h4>Please ensure your query doesn't have any typos.</h4>
+
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#no-typos" aria-expanded="false" aria-controls="collapseExample">No Typos?</button>
+
+        <div class="collapse" id="no-typos">
+            <div class="card card-body">
+                <p>If we do not have what you are looking for,<b>you may submit us the your idea via <a href="{% url 'pages:contact_us' %}">contact us page</a> ;)</b>. We are constantly trying to push content atleast once a day.</p>
+                <p>Till then you can see if something intrests you <a href="{% url 'articles:home' %}">here</a>, and continue reading.</p>
+                <p><b>Thanks</b></p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock body %}

@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.urls import reverse
-from articles.models import Article
+from articles.models import Article, Category
 
 # Create your views here.
 class AboutPageView(TemplateView):
@@ -34,8 +34,11 @@ def contact_us(request):
     return render(request, "pages/contact_us.html", {'form': contact_form})
 
 def home_page(request):
-    blogs = Article.objects.all()[:10]
+    featured_articles = Article.objects.filter(featured=True)
+    categories = Category.objects.all()
+    # print(dir(categories[0].keywords.all())
     context = {
-            "blogs": blogs,
+            "featured_articles": featured_articles,
+            "categories": categories,
     }
     return render(request, "pages/home.html", context)

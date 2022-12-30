@@ -159,8 +159,8 @@
 {% if blog.schema3 %}
 {{blog.schema3|safe}}
 {% endif %}
-<meta name="description" content="{{blog.description}}">
-<meta name="keywords" content="{{blog.keywords}}">
+<meta name="description" content="{{blog.description|safe}}">
+<meta name="keywords" content="{% for keyword in blog.keywords.all %}{{keyword}}, {% endfor %}">
 <meta name="author" content="Suprobha Saikat">
 
 <meta property="og:title" content="{{blog.meta_title}}">
@@ -168,16 +168,14 @@
 <meta property="og:url" content="https://www.lifology.site/article/{{blog.slug}}/">
 <meta property="og:description" content="{{blog.description}}">
 <meta property="og:type" content="article">
-{% if blog.images.last.image.url %}
-<meta property="og:image" content="https://lifology.site{{blog.images.last.image.url}}">
-{% endif %}
-
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="Lifology.site">
 <meta name="twitter:title" content="{{blog.meta_title}}">
 <meta name="twitter:description" content="{{blog.description}}">
+
 {% if blog.images.last.image.url %}
+<meta property="og:image" content="https://lifology.site{{blog.images.last.image.url}}">
 <meta name="twitter:image" content="https://lifology.site{{blog.images.last.image.url}}">
 {% endif %}
 

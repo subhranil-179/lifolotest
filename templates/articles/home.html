@@ -1,26 +1,84 @@
 {% extends 'base.html' %}
 {% block title %}Articles | Home{% endblock title %}
+{% block style %}
+<style>
+    .small-logo{
+        width: 20px;
+        height: 20px;
+    }
+    .small-logo>svg{
+        width: 100%;
+        height: 100%;
+    }
+    .brdr-bottom{
+        border-bottom: 2px solid black;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
+    .category{
+        margin-left: 1rem;
+    }
+</style>
+{% endblock style %}
 {% block body %}
 {% load static %}
 <div class="container">
-    <h1>Latest Articles</h1>
-{% for article in article_list|dictsortreversed:"id" %}
-<div class="card mb-3 bg-dark" style="max-width: 1368px; colo: white; padding: 1rem;">
-  <div class="row g-0">
-    <div class="col-md-4">
-        <img src="{{article.images.last.image.url}}" class="img-fluid rounded-start" alt="...">
+    <div class="latest-blogs">
+        <h2 class="brdr-bottom">Featured</h2>
+    {% for article in featured_articles %}
+    {% include 'components/card.html' %}
+    {% endfor %}
+    <h2 class="brdr-bottom"><a href="{% url 'articles:popular' %}">Popular</a></h2>
+    <div class="popular">
+    {% for article in popular_article_list %}
+        {% include 'components/card.html' %}
+    {% endfor %}
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-          <h5 class="card-title" style="color: white;"><a href="{% url 'articles:detail' article.slug %}">{{article.title}}</a></h5>
-        <p class="card-text" style="color: white;">{{article.description|truncatewords:50}}</p>
-        <p class="card-text"><small class="text-muted">Published: {{article.publish_timestamp|date:"d-m-Y | g:i A"}}</small></p>
-        <p class="card-text"><small class="text-muted">Updated: {{article.edited_timestamp|date:"d-m-Y | g:i A"}}</small></p>
-      </div>
+    <h2 class="brdr-bottom"><a href="{% url 'articles:latest' %}">Latest</a></h2>
+    <div class="latest">
+    {% for article in latest_article_list %}
+        {% include 'components/card.html' %}
+    {% endfor %}
+    </div>
+    <h2 class="brdr-bottom">Categories</h2>
+    {% for category in categories %}
+    <div class="category">
+        <div class="post">
+            <h3><a href="{% url 'articles:category' category.category %}">{{category.category}}</a></h3>
+            {% for keyword in category.keywords.all %}
+            {% for article in keyword.article_keywords.all %}
+            {% include 'components/card.html' %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast {% if messages %} show {% endif %}" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <div class="me-2 small-logo">
+      {% include 'svgs/logo.svg' %}
+        </div>
+      <strong class="me-auto">Lifology</strong>
+      <small>Jut now</small>
+      <button type="button" class="btn-close" id="cls-not" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
     </div>
   </div>
 </div>
-
-{% endfor %}
-</div>
+<script>
+const closNot = document.getElementById('cls-not')
+const toast = document.getElementById('liveToast')
+closNot.addEventListener('click', () => {
+    liveToast.classList.remove('show')
+    liveToast.classList.add('hide')
+})
+</script>
 {% endblock body %}

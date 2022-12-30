@@ -8,14 +8,10 @@ from django.views.generic import (ListView,
                                   UpdateView,
                                   DeleteView)
 
-from articles.models import Article, Comment
+from articles.models import Article, Comment, Category
 from .forms import CommentForm
 # Create your views here.
 
-class HomeView(ListView):
-    model = Article
-    template_name = 'articles/home.html'
-    context_object_name = 'article_list'
 """
 
 class ArticleDetailView(DetailView):
@@ -72,3 +68,40 @@ def fix(request):
     blog = Article.objects.get(slug="10-best-stress-relieving-activities")
     return render(request, "articles/fix.html", {"blog": blog})
     # return redirect(reverse("articles:detail", kwargs={"slug": "10-best-stress-relieving-activities"}))
+
+def category_view(request, category):
+    keywords = Category.objects.get(category=category).keywords.all()
+    context = {"category": category,
+        "keywords": keywords
+    }
+    return render(request, "articles/category.html", context)
+
+def article_home_view(request):
+    featured_articles = Article.objects.filter(featured=True)
+    popular_article_list = Article.objects.order_by("-views")[:5]
+    latest_article_list = Article.objects.order_by("-publish_timestamp")[:5]
+    categories = Category.objects.all()
+    # print(dir(categories[0].keywords.all())
+    context = {
+            "featured_articles": featured_articles,
+            "categories": categories,
+            "popular_article_list": popular_article_list,
+            "latest_article_list": latest_article_list,
+    }
+    return render(request, "articles/home.html", context)
+
+
+def popular_view(request):
+    article_list = Article.objects.all().order_by('-views')
+    context = {"article_list": article_list,
+        "section": "Popular",
+    }
+    return render(request, "articles/article_.html", context)
+
+
+def latest_view(request):
+    article_list = Article.objects.all().order_by('-publish_timestamp')
+    context = {"article_list": article_list,
+        "section": "Latest",
+    }
+    return render(request, "articles/article_.html", context)

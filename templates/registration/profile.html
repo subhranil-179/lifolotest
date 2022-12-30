@@ -1,11 +1,39 @@
 {% extends 'base.html' %}
 
-{% block title %} User | {{profile.user.username}} {% endblock title %}
+{% block style %}
+<style>
+    .helptext{
+        display: none;
+    }
+    .update-button{
+        width: min-content;
+    }
+    .form-group p{
+        display: grid;
+        max-width: 500px;
+    }
+    a[href^="/media/images/profile_pics/"]{
+        display: none;
+    }
+    .form-group p:first-of-type{
+        font-size: 0;
+    }
+    .form-group p:first-of-type *{
+        font-size: initial;
+    }
+</style>
+{% endblock style %}
 {% block body %}
 <div class="container">
-    <img style="border-radius:50%;" width=200px height=200px src="{{profile.image.url}}" alt="">
-    <p>username: {{profile.user.username}}</p>
-    <p>bio: {{profile.bio}}</p>
-    <a href="{% url 'logout' %}"> Logout </a>
+    <h1>Your Profile</h1>
+    <img style="border-radius:50%; margin-bottom: 1rem;" width=75px height=75px src="{{profile.image.url}}" alt="">
+    <form class="form-group d-flex flex-column" action="" method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{p_form.as_p}}
+        {{u_form.as_p}}
+        <input class="btn btn-primary update-button" type="submit" value="Update">
+    </form>
+    <a class="btn btn-danger my-2" href="{% url 'accounts:register' %}"> Logout </a>
+    <p>Want to change your password? <a href="{% url 'password_change' %}">Click here</a></p>
 </div>
 {% endblock body %}

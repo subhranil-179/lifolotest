@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Lifology | Articles{% endblock title %}
+{% block body %}
+{% load static %}
+<div class="container">
+    <h1>Latest Articles</h1>
+</div>
+<div class="articles">
+{% for article in article_list %}
+{% include 'components/card.html' %}
+{% endfor %}
+</div>
+{% endblock body %}

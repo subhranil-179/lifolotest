@@ -24,7 +24,6 @@ dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SEC_KEY')
-print(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -49,10 +48,12 @@ INSTALLED_APPS = [
     # Added manually
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django.contrib.postgres',
     # Project Apps
     'articles.apps.ArticlesConfig',
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
+    'search.apps.SearchConfig',
 ]
 
 MIDDLEWARE = [
@@ -163,9 +164,10 @@ LOGOUT_REDIRECT_URL = 'articles:home'
 
 """
 CSRF_COOKIE_HTTPONLY = True
-"""
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+"""
 
 SITE_ID=1
 
