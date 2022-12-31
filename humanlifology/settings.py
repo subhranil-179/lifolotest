@@ -26,7 +26,7 @@ dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = os.environ.get('SEC_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 
@@ -90,6 +90,7 @@ WSGI_APPLICATION = 'humanlifology.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -108,7 +109,6 @@ DATABASES = {
         'NAME': '/home/subhranil/latest/db.sqlite3',
     }
 }
-'''
 
 
 # Password validation
@@ -164,10 +164,10 @@ LOGOUT_REDIRECT_URL = 'articles:home'
 
 """
 CSRF_COOKIE_HTTPONLY = True
-"""
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+"""
 
 SITE_ID=1
 

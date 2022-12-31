@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% block style %}
 <style>
-    .search-form{
-        margin-bottom: 2rem;
-    }
 </style>
 {% endblock style %}
 {% block head %}
@@ -31,8 +28,8 @@
 {% block title %}Lifology | Search Blogs{% endblock title %}
 {% block body %}
 {% load static %}
-<div class="container vh-100">
-    <form class="d-flex search-form" action="{% url 'search:search' %}" method="GET">
+<div class="container">
+    <form class="d-flex search-form mb-4" action="{% url 'search:search' %}" method="GET">
         <input class="form-control me-2" type="search" placeholder="search..." aria-label="Search" name="q">
         <button class="btn btn-outline-success" type="submit">{% include 'svgs/search.svg' %}</button>
     </form>

@@ -12,6 +12,8 @@ class PrivacyPolicyPageView(TemplateView):
     template_name = 'pages/privacy_policy.html'
 class DisclaimerPageView(TemplateView):
     template_name = 'pages/disclaimer.html'
+class TACPageView(TemplateView):
+    template_name = 'pages/tac.html'
 class BlogView(TemplateView):
     template_name = 'pages/blog.html'
 
