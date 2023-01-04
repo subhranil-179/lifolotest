@@ -15,8 +15,12 @@ from pathlib import Path
 import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+DEBUG = True
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
+if DEBUG:
+    dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +30,6 @@ dotenv.read_dotenv(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = os.environ.get('SEC_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ENV_ALLOWED_HOST = os.environ.get('DJANGO_ALLOWED_HOST') or None
 
@@ -90,26 +93,24 @@ WSGI_APPLICATION = 'humanlifology.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('NAME'),
-        'USER': os.environ.get('USER'),
-        'PASSWORD': os.environ.get('PASSWORD'),
-        'HOST': os.environ.get('HOST'),
-        'PORT': os.environ.get('PORT'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': '/home/subhranil/latest/db.sqlite3',
+        }
     }
-}
-
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/home/subhranil/latest/db.sqlite3',
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ.get('NAME'),
+            'USER': os.environ.get('USER'),
+            'PASSWORD': os.environ.get('PASSWORD'),
+            'HOST': os.environ.get('HOST'),
+            'PORT': os.environ.get('PORT'),
+        }
     }
-}
-'''
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -147,7 +148,13 @@ USE_TZ = True
 
 # Static
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+if DEBUG:
+    STATICFILES_DIRS = (
+      os.path.join(BASE_DIR, 'static/'),
+    )
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 
 # Media
 MEDIA_URL = 'media/'
@@ -166,8 +173,9 @@ LOGOUT_REDIRECT_URL = 'articles:home'
 CSRF_COOKIE_HTTPONLY = True
 """
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+if not DEBUG:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 
 SITE_ID=1
 
