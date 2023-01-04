@@ -174,7 +174,7 @@
 {{blog.schema3|safe}}
 {% endif %}
 <meta name="description" content="{{blog.description|safe}}">
-<meta name="keywords" content="{% for keyword in blog.keywords.all %}{{keyword}}, {% endfor %}">
+<meta name="keywords" content="{{blog.keywords}}">
 <meta name="author" content="Suprobha Saikat">
 
 <meta property="og:title" content="{{blog.meta_title}}">
