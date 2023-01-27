@@ -204,6 +204,7 @@
 <div class="container" id="container-95p">
     <h1 class="main-heading">{{blog.title}}</h1>
     {{blog.content|safe}}
+    <p class="text-end"><span class="fw-bolder">Author - </span><a href="{% url 'pages:author' %}">Suprobha Saikat</a></p>
 </div>
 <div class="comments">
 {% include 'articles/comments.html' %}

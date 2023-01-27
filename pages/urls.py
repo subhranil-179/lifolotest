@@ -4,6 +4,7 @@ from pages.views import (AboutPageView,
                          PrivacyPolicyPageView,
                          DisclaimerPageView,
                          TACPageView,
+                         AuthorView,
                          BlogView,
                          home_page,
                          contact_us, )
@@ -18,4 +19,5 @@ urlpatterns = [
     path('disclaimer/', DisclaimerPageView.as_view(), name='disclaimer'),
     path('terms-and-conditions/', TACPageView.as_view(), name='tac'),
     path('blog/', BlogView.as_view(), name='blog'),
+    path('author/suprobha-saikat/', AuthorView.as_view(), name='author'),
 ]

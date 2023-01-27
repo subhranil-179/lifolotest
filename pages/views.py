@@ -16,6 +16,8 @@ class TACPageView(TemplateView):
     template_name = 'pages/tac.html'
 class BlogView(TemplateView):
     template_name = 'pages/blog.html'
+class AuthorView(TemplateView):
+    template_name = 'pages/author.html'
 
 # Temproraliy not required
 class ContactPageView(TemplateView):
