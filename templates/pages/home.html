@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Lifology - Blogs on Life and Technology {% endblock title %}
+{% block title %} Lifology – Blogs on Productivity {% endblock title %}
 {% block style %}
 {% load static %}
 <style>
@@ -12,8 +12,7 @@
         justify-content: space-between;
         align-items: center;
     }
-    .left > p, .right > p{
-        max-width: 960px;
+    .left > p, .right > p, .content-style{
         word-spacing: 4px;
         line-height: 1.7rem;
         font-size: 1.1rem;
@@ -24,30 +23,43 @@
         color: #00AA95;
         letter-spacing: 2px;
     }
+    .logo-h2{
+        color: #00cc76;
+    }
 </style>
 {% endblock style %}
 {% block head %}
-<meta name="description" content="Read new and latest articles on life and technology, well researched and written blogs on lifology.">
-<meta name="keywords" content="blogs on life and technology, blogs on life, blogs on technology, best blogs on life, best blogs on technology">
+<meta name="description" content="Looking for ways by which you can increase your productivity and make your life better? Lifology is the best place for you! We provides best blogs on productivity, along with mental health, lifestyle, procrastination, and more. Our scientifically proven and well-researched content helps you implement productive habits and overcome common factors that hinder your productivity. Learn how to use technology to your advantage to succeed in your life.">
+<meta name="keywords" content="blogs on productivity, best blogs on productivity, blogs on mental health, blogs on lifestyle, blogs on productivity, blogs on procrastination, productivity hacks, productivity habits for students">
 <link rel="canonical" href="https://lifology.site/"/>
 {% endblock head %}
 {% block body %}
 {% load static %}
 <div class="container">
-    <section class="home-up">
-        <main>
-            <div class="left">
-                <h1 class="logo-h1">Lifology</h1>
-                <p>Lifology is a blogging website where you can read informative, interesting and precise blogs related to life and technology. You can read blogs on digital marketing, health, technology and many more on a regular basis. Every time you visit our website you will get some piece of information, which can add values to your life. In lifology, blogs are very easy to read and understandable. You will read the most high-quality content on lifology.</p>
-            </div>
-        </main>
-        <div class="latest-blogs">
-            <h2>Featured Articles</h2>
-        {% for article in featured_articles|dictsortreversed:"id" %}
-        {% include 'components/card.html' %}
-        {% endfor %}
-        </div>
-        <p class="fw-bold text-center">See all the articles <a href="{% url 'articles:home' %}">here</a></p>
-    </section>
+    {% include 'components/logo_with_moto.html' %}
+    <p class="content-style">Lives of millions of people changed after the pandemic hit. The graph of online work has shown a significant increase since the pandemic hit, with more people than ever before working remotely, freelancing, teaching online, and starting online businesses. Now people are not only dependent on a 9-5 job for their living, but they are also exploring their talents and hobby and trying to make it their professional career. However, at some point in life, it becomes extremely difficult to focus on work due to some factors:</p>
+    <ul>
+        <li class="content-style lh-1">Time management</li>
+        <li class="content-style lh-1">Stress</li>
+        <li class="content-style lh-1">Distraction and many more</li>
+    </ul>
+    <p class="content-style">Lifology is a place where you can find</p>
+    <ul>
+        <li class="content-style lh-1">Blogs on mental health</li>
+        <li class="content-style lh-1">Blogs on lifestyle</li>
+        <li class="content-style lh-1">Blogs on productivity</li>
+        <li class="content-style lh-1">Blogs on procrastination</li>
+        <li class="content-style lh-1">Productivity hacks</li>
+        <li class="content-style lh-1">Productivity habits for students and workers to succeed in their life</li>
+    </ul>
+    <p class="content-style">Lifology's primary focus is to provide value to their users by providing high-quality content to their users as they can <a target="_blank" href="https://lifology.site/article/category/Productivity/">read blogs on productivity</a>  learn and implement productive habits in their life to achieve immense success and great heights. We share scientifically proven and well-researched points with the users so that they can know the reason behind any topic. Lifology (Life and technology) helps its users to use technology to work better in their life. Mobile phones can act as your enemy if you are just using them for entertainment purposes and not learning anything. However, this same process can be beneficial for you if you master the art of using phones for improving your life. Lifology blogs help users that how they can work productively from home without getting distracted and stay focused while working.</p>
+    <p class="content-style">Hope every time you will get some useful knowledge along with some tips and hacks to improve your productivity to the next level. </p>
+    <div class="latest-blogs">
+        <h2>Featured Articles</h2>
+    {% for article in featured_articles|dictsortreversed:"id" %}
+    {% include 'components/card.html' %}
+    {% endfor %}
+    </div>
+    <p class="fw-bold text-center">See all the articles <a href="{% url 'articles:home' %}">here</a></p>
 </div>
 {% endblock body %}

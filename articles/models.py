@@ -7,6 +7,9 @@ from django.contrib.postgres.indexes import GinIndex
 
 # Create your models here.
 
+def img_date_path(instance, filename):
+    return f'images/articles/{datetime.now().strftime("%Y")}/{datetime.now().strftime("%m")}/{datetime.now().strftime("%d")}/{filename}'
+
 class Category(models.Model):
     category = models.CharField(max_length=200)
 
@@ -71,7 +74,7 @@ class Comment(models.Model):
 
 class Images(models.Model):
     article = models.ForeignKey(Article, default=None, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to=f'images/articles/{datetime.now().strftime("%Y")}/{datetime.now().strftime("%m")}/{datetime.now().strftime("%d")}')
+    image = models.ImageField(upload_to=img_date_path)
 
     def __str__(self):
         return str(self.image)
